@@ -9,7 +9,9 @@ import Pin from './bar-map-pin.component';
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer } from './bar-map.layers';
 import BARS from '@assets/bars.json';
 
-const MAPBOX_TOKEN = import.meta.env.VITE_MAP_PUBLIC_TOKEN as string;
+// const MAPBOX_TOKEN = import.meta.env.VITE_MAP_PUBLIC_TOKEN as string;
+const MAPBOX_TOKEN =
+  'pk.eyJ1IjoiamVyb21lYWJlbCIsImEiOiJjbHBoM2N0cnQwNWFlMmpwZDI1c3h2NXJqIn0.v9Z0ML_8Fe2xlzX_ggRyOA';
 
 const geojsonData: FeatureCollection<Geometry, GeoJsonProperties> = {
   type: 'FeatureCollection',
@@ -130,11 +132,21 @@ export const BarMap = () => {
         {popupInfo && (
           <Popup
             anchor="top"
+            closeButton={false}
             longitude={Number(popupInfo.lng)}
             latitude={Number(popupInfo.lat)}
             onClose={() => setPopupInfo(null)}
+            className="min-w-fit p-6 text-black"
           >
-            <span className="text-lg text-black">{popupInfo.name}</span>
+            <div className="flex items-center justify-between gap-8">
+              <span className="text-lg text-black">{popupInfo.name}</span>
+              <button
+                className="h-6 w-6 rounded-full border border-black hover:bg-black hover:text-white"
+                onClick={() => setPopupInfo(null)}
+              >
+                X
+              </button>
+            </div>
           </Popup>
         )}
       </Map>

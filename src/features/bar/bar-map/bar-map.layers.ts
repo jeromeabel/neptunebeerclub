@@ -29,9 +29,9 @@ export const unclusteredPointLayer: LayerProps = {
   source: 'earthquakes',
   filter: ['!', ['has', 'point_count']],
   paint: {
-    'circle-color': '#fff',
-    'circle-radius': 4,
-    'circle-stroke-width': 1,
-    'circle-stroke-color': 'transparent',
+    'circle-color': 'transparent',
+    'circle-radius': 6,
+    'circle-stroke-width': 3,
+    'circle-stroke-color': '#fff',
   },
 };
