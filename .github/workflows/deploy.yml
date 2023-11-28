@@ -1,4 +1,4 @@
-name: Build & Unit Tests
+name: Build & Tests & Check Formatting
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
           cache: 'npm'
       - name: Install modules from npm
         run: npm ci
-	  - name: Run tests
+      - name: Run tests
         run: npm test
 
   build:
@@ -35,8 +35,8 @@ jobs:
           cache: 'npm'
       - name: Install modules from npm
         run: npm ci
-	  - name: Build project
-      	run: npm run build
+      - name: Build project
+        run: npm run build
 
   check-formatting:
     runs-on: ubuntu-latest
