@@ -21,6 +21,7 @@ export default defineConfig({
       '@layouts': path.resolve(__dirname, './src/ui/layouts'),
       '@features': path.resolve(__dirname, './src/features'),
       '@pages': path.resolve(__dirname, './src/pages'),
+      '@styles': path.resolve(__dirname, './src/styles'),
     },
   },
 });
