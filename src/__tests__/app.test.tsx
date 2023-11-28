@@ -7,11 +7,11 @@ import App from '../pages/app';
 
 // Tests
 describe('Renders main page correctly', () => {
-	it('Should render the App correctly', () => {
-		render(<App />);
-		//const wrapper = render(<App />);
-		//const h1 = wrapper.container.querySelector('h1'); // as HTMLHeadingElement
-		// const h1 = screen.queryByText('Vite + React');
-		//expect(h1).toBeInTheDocument();
-	});
+  it('Should render the App correctly', () => {
+    render(<App />);
+    //const wrapper = render(<App />);
+    //const h1 = wrapper.container.querySelector('h1'); // as HTMLHeadingElement
+    // const h1 = screen.queryByText('Vite + React');
+    //expect(h1).toBeInTheDocument();
+  });
 });
