@@ -3,7 +3,7 @@ import { render } from '@testing-library/react'; // screen
 //import userEvent from '@testing-library/user-event';
 
 // To Test : App.tsx
-import App from '../App';
+import App from '../pages/app';
 
 // Tests
 describe('Renders main page correctly', () => {
