@@ -6,7 +6,7 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   // site: 'https://jeromeabel.github.io',
-  base: '/kungfuschool',
+  base: '/neptunebeerclub',
   test: {
     globals: true,
     environment: 'happy-dom',
