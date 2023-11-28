@@ -6,8 +6,8 @@ import { render } from '@testing-library/react'; // screen
 import { Home } from '@pages/home';
 
 // Tests
-describe('Renders main page correctly', () => {
-  it('Should render the App correctly', () => {
+describe('Renders Home page correctly', () => {
+  it('Should render the Home correctly', () => {
     render(<Home />);
     //const wrapper = render(<App />);
     //const h1 = wrapper.container.querySelector('h1'); // as HTMLHeadingElement
