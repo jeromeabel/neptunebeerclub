@@ -1,3 +1,41 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  h1 {
+    @apply text-5xl tracking-wider;
+  }
+  h2 {
+    @apply text-4xl;
+  }
+  h3 {
+    @apply text-3xl;
+  }
+  h4 {
+    @apply text-2xl;
+  }
+  h5 {
+    @apply text-xl;
+  }
+  h6 {
+    @apply text-lg;
+  }
+}
+
+@layer components {
+}
+
+.custom-scrollbar {
+  -webkit-scrollbar-track: #2c2c2c;
+  -webkit-scrollbar-thumb: #b066f3;
+
+  -webkit-scrollbar-track-hover: #2c2c2c;
+  -webkit-scrollbar-thumb-hover: #b066f3;
+  --scrollbar-corner-hover: var(--scrollbar-corner);
+  -webkit-scrollbar-track-active: #2c2c2c;
+  -webkit-scrollbar-thumb-active: #b066f3;
+  --scrollbar-corner-active: var(--scrollbar-corner-hover);
+  scrollbar-color: #b066f3 #2c2c2c;
+  overflow: overlay;
+}
