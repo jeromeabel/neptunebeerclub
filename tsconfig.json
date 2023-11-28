@@ -18,7 +18,19 @@
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true,
+
+    /* aliases */
+    "baseUrl": ".",
+    "paths": {
+      "@assets/*": ["src/assets/*"],
+      "@components/*": ["src/ui/components/*"],
+      "@containers/*": ["src/ui/containers/*"],
+      "@layouts/*": ["src/ui/layouts/*"],
+      "@features/*": ["src/features/*"],
+      "@pages/*": ["src/pages/*"],
+      "@styles/*": ["src/styles/*"]
+    }
   },
   "include": ["src", "./vitest.setup.ts"],
   "types": ["node", "jest", "@testing-library/jest-dom"],
