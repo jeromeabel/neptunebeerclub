@@ -13,7 +13,7 @@ export const BarList = () => {
   }
 
   return (
-    <section className="h-5/6 overflow-y-scroll">
+    <section className="custom-scrollbar h-5/6 overflow-y-scroll">
       <ul className="flex flex-col gap-4  p-4">
         {bars.map((bar) => (
           <li key={bar.id}>

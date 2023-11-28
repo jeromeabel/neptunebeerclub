@@ -25,4 +25,7 @@ export default defineConfig({
       '@styles': path.resolve(__dirname, './src/styles'),
     },
   },
+  define: {
+    'process.env.MapboxAccessToken': JSON.stringify(process.env.MapboxAccessToken),
+  },
 });
