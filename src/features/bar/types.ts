@@ -1,4 +1,6 @@
-export interface Bar {
+import { GeoJsonProperties, Geometry, Feature, FeatureCollection } from 'geojson';
+
+export interface BarType {
   id: number;
   name: string;
   location: {
@@ -18,3 +20,10 @@ export interface Bar {
   category: number[];
   type: number[];
 }
+
+export interface ApiResponse {
+  data: BarType[];
+}
+
+export type GeoJsonFeatureCollection = FeatureCollection<Geometry, GeoJsonProperties>;
+export type GeoJsonFeature = Feature<Geometry, GeoJsonProperties>;

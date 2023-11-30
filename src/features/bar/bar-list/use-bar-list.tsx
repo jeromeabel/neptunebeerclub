@@ -1,13 +1,9 @@
 import { useEffect, useState } from 'react';
 // import barData from '@assets/bars.json';
-import { Bar } from '../types';
-
-export interface ApiResponse {
-  data: Bar[];
-}
+import { BarType, ApiResponse } from '../types';
 
 export const useBarList = () => {
-  const [bars, setBars] = useState<Bar[]>([]);
+  const [bars, setBars] = useState<BarType[]>([]);
   const [isPending, setIsPending] = useState(true);
   const [error, setError] = useState<string>('');
 
