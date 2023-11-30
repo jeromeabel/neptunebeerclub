@@ -1,18 +1,18 @@
 import { Header } from '@containers/Header';
-import { BarList, BarMap } from '@features/bar';
-import { BarProvider } from '@features/bar/bar-context';
+import { BarList, BarMap, BarFilters, BarProvider } from '@features/bar';
 import { MapProvider } from 'react-map-gl';
 
 export const Home = () => {
   return (
     <div className="">
       <Header />
-      {/* <div className="grid grid-rows-[auto_1fr] grid grid-cols-[1fr_2fr] ">
-       */}
       <div className="grid grid-cols-[1fr_2fr]">
         <BarProvider>
           <MapProvider>
-            <BarList />
+            <div className="flex flex-col">
+              <BarFilters />
+              <BarList />
+            </div>
             <BarMap />
           </MapProvider>
         </BarProvider>
