@@ -9,7 +9,20 @@ interface BarContextProps {
   loading: boolean;
   currentBar: BarType;
   updateCurrentBar: (newBar: BarType) => void;
+  currentPosition: number[];
 }
+
+// const [pos, setPos] = useState([0, 0]);
+
+// useEffect(() => {
+//   navigator.geolocation.getCurrentPosition(
+//     ({ coords }) => {
+//       setPos([coords.longitude, coords.latitude]);
+//     },
+//     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
+//     (err: unknown) => console.warn(`Erreur de géocalisation ${err}`),
+//   );
+// }, []);
 
 export const BarContext = createContext<BarContextProps | undefined>(undefined);
 
@@ -18,6 +31,7 @@ export const BarProvider = ({ children }: PropsWithChildren) => {
   const [currentBar, setCurrentBar] = useState<BarType>();
   const [filteredBars, setFilteredBars] = useState<BarType[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPosition, setCurrentPosition] = useState([0, 0]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,6 +45,10 @@ export const BarProvider = ({ children }: PropsWithChildren) => {
         setLoading(false);
       }
     };
+
+    navigator.geolocation.getCurrentPosition(({ coords }) => {
+      setCurrentPosition([coords.longitude, coords.latitude]);
+    });
 
     void fetchData();
   }, []);
@@ -52,6 +70,7 @@ export const BarProvider = ({ children }: PropsWithChildren) => {
     loading,
     currentBar: currentBar!,
     updateCurrentBar,
+    currentPosition,
   };
 
   return <BarContext.Provider value={contextValue}>{children}</BarContext.Provider>;
