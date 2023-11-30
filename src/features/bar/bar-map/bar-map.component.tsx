@@ -47,18 +47,20 @@ export const BarMap = () => {
         ref={mapRef}
         onClick={onClick}
       >
-        <Source
-          id="brest-bars"
-          type="geojson"
-          data={geojsonData}
-          cluster={true}
-          clusterMaxZoom={14}
-          clusterRadius={50}
-        >
-          <Layer {...clusterLayer} />
-          <Layer {...clusterCountLayer} />
-          <Layer {...unclusteredPointLayer} />
-        </Source>
+        {geojsonData ? (
+          <Source
+            id="brest-bars"
+            type="geojson"
+            data={geojsonData}
+            cluster={true}
+            clusterMaxZoom={14}
+            clusterRadius={50}
+          >
+            <Layer {...clusterLayer} />
+            <Layer {...clusterCountLayer} />
+            <Layer {...unclusteredPointLayer} />
+          </Source>
+        ) : null}
         <BarMapMarkers bars={filteredBars} />
       </Map>
     </div>
