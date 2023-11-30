@@ -7,12 +7,15 @@ interface BarContextProps {
   filteredBars: BarType[];
   updateFilteredBars: (filteredData: BarType[]) => void;
   loading: boolean;
+  currentBar: BarType;
+  updateCurrentBar: (newBar: BarType) => void;
 }
 
 export const BarContext = createContext<BarContextProps | undefined>(undefined);
 
 export const BarProvider = ({ children }: PropsWithChildren) => {
   const [bars, setBars] = useState<BarType[]>([]);
+  const [currentBar, setCurrentBar] = useState<BarType>();
   const [filteredBars, setFilteredBars] = useState<BarType[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -23,7 +26,7 @@ export const BarProvider = ({ children }: PropsWithChildren) => {
         setBars(data);
         setFilteredBars(data);
       } catch (error) {
-        // Gérer l'erreur
+        console.error("Erreur lors de l'importation des données des bars :", error);
       } finally {
         setLoading(false);
       }
@@ -36,11 +39,19 @@ export const BarProvider = ({ children }: PropsWithChildren) => {
     setFilteredBars(filteredData);
   };
 
+  const updateCurrentBar = (newBar: BarType) => {
+    if (newBar) {
+      setCurrentBar(newBar);
+    }
+  };
+
   const contextValue: BarContextProps = {
     bars,
     filteredBars,
     updateFilteredBars,
     loading,
+    currentBar: currentBar!,
+    updateCurrentBar,
   };
 
   return <BarContext.Provider value={contextValue}>{children}</BarContext.Provider>;

@@ -15,7 +15,6 @@ const MAPBOX_TOKEN =
 export const BarMap = () => {
   const { filteredBars, loading } = useBarContext();
   const [geojsonData, setGeojsonData] = useState<GeoJsonFeatureCollection>();
-  //const mapRef = useRef<mapboxgl.Map | null>(null);
   const mapRef = useRef<MapRef>(null);
 
   useEffect(() => {
@@ -36,6 +35,7 @@ export const BarMap = () => {
   return (
     <div className="map-wrap">
       <Map
+        id="barmap"
         initialViewState={{
           longitude: -4.4852,
           latitude: 48.3891,

@@ -25,5 +25,11 @@ export interface ApiResponse {
   data: BarType[];
 }
 
+export type PopupInfosType = {
+  lng: number;
+  lat: number;
+  name: string;
+};
+
 export type GeoJsonFeatureCollection = FeatureCollection<Geometry, GeoJsonProperties>;
 export type GeoJsonFeature = Feature<Geometry, GeoJsonProperties>;
