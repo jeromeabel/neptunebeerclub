@@ -12,18 +12,6 @@ interface BarContextProps {
   currentPosition: number[];
 }
 
-// const [pos, setPos] = useState([0, 0]);
-
-// useEffect(() => {
-//   navigator.geolocation.getCurrentPosition(
-//     ({ coords }) => {
-//       setPos([coords.longitude, coords.latitude]);
-//     },
-//     // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
-//     (err: unknown) => console.warn(`Erreur de géocalisation ${err}`),
-//   );
-// }, []);
-
 export const BarContext = createContext<BarContextProps | undefined>(undefined);
 
 export const BarProvider = ({ children }: PropsWithChildren) => {
@@ -46,10 +34,22 @@ export const BarProvider = ({ children }: PropsWithChildren) => {
       }
     };
 
-    navigator.geolocation.getCurrentPosition(({ coords }) => {
-      setCurrentPosition([coords.longitude, coords.latitude]);
-    });
+    const getNavigatorPosition = async () => {
+      if (navigator.permissions) {
+        try {
+          const result = await navigator.permissions.query({ name: 'geolocation' });
+          if (result.state === 'granted') {
+            navigator.geolocation.getCurrentPosition(({ coords }) => {
+              setCurrentPosition([coords.longitude, coords.latitude]);
+            });
+          }
+        } catch (err) {
+          console.error('Erreur lors de la récupération de la position');
+        }
+      }
+    };
 
+    void getNavigatorPosition();
     void fetchData();
   }, []);
 
