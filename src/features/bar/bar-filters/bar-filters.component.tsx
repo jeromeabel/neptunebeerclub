@@ -1,28 +1,21 @@
+import { useState } from 'react';
 import { useBarContext } from '../bar-context';
+import { BarFilter } from './bar-filter.components';
 
+// 🍾 🧃 🧉 🍹 🍸 🥃 ☕ 🍷
 export const BarFilters = () => {
   const { loading, bars, updateFilteredBars } = useBarContext();
+  const [currentFilter, setCurrentFilter] = useState<number>(0);
 
-  const handleCategoryChange = (category: string) => {
-    //[...bars].slice(0, Number(category) * 5)
+  const handleOnFilter = (filterId: number) => {
     let filteredBars = [...bars];
-    if (Number(category) !== 0) {
+    if (filterId !== 0) {
       filteredBars = [...filteredBars].filter((bar) =>
-        bar.category.some((cat) => cat === Number(category) + 1),
+        bar.category.some((cat) => cat === filterId + 1),
       );
     }
     updateFilteredBars(filteredBars);
-  };
-
-  const handleTypeChange = (type: string) => {
-    //[...bars].slice(0, Number(type) * 5)
-    let filteredBars = [...bars];
-    if (Number(type) !== 0) {
-      filteredBars = [...filteredBars].filter((bar) =>
-        bar.type.some((cat) => cat === Number(type) + 1),
-      );
-    }
-    updateFilteredBars(filteredBars);
+    setCurrentFilter(filterId);
   };
 
   if (loading) {
@@ -30,31 +23,33 @@ export const BarFilters = () => {
   }
 
   return (
-    <div>
-      <h2>Filtrer</h2>
+    <div className="border-b border-gray-500 p-4">
+      <h2 className="font-heading text-5xl tracking-wide">
+        Trouver le bar qu&apos;il vous faut <span className="text-primary">selon votre humeur</span>
+      </h2>
 
-      <div className="flex gap-8">
-        <div>
-          <label>
-            Category:
-            <select className="bg-slate-800" onChange={(e) => handleCategoryChange(e.target.value)}>
-              <option value="0">All</option>
-              <option value="1">Category 1</option>
-              <option value="2">Category 2</option>
-            </select>
-          </label>
-        </div>
-
-        <div>
-          <label>
-            Type:
-            <select className="bg-slate-800" onChange={(e) => handleTypeChange(e.target.value)}>
-              <option value="0">All</option>
-              <option value="1">Type 1</option>
-              <option value="2">Type 2</option>
-            </select>
-          </label>
-        </div>
+      <div className="mt-4 grid h-40 grid-cols-3 gap-4">
+        <BarFilter
+          id={0}
+          name="Tous"
+          onSelect={handleOnFilter}
+          icon="🍺"
+          selectedFilter={currentFilter}
+        />
+        <BarFilter
+          id={1}
+          name="Midi"
+          onSelect={handleOnFilter}
+          icon="🍷"
+          selectedFilter={currentFilter}
+        />
+        <BarFilter
+          id={2}
+          name="Soirée"
+          onSelect={handleOnFilter}
+          icon="🍹"
+          selectedFilter={currentFilter}
+        />
       </div>
     </div>
   );
