@@ -16,7 +16,7 @@ export const BarList = () => {
   return (
     <section className="grow overflow-y-scroll p-4">
       <ul className="flex flex-col gap-4">
-        {filteredBars.map((bar) => (
+        {filteredBars.slice(0, numberOfBars).map((bar) => (
           <li key={bar.id}>
             <BarItem bar={bar} />
           </li>
