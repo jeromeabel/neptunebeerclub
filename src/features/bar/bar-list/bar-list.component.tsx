@@ -9,7 +9,7 @@ export const BarList = () => {
   }
 
   return (
-    <section>
+    <section className="p-4">
       <ul className="flex flex-col gap-4">
         {filteredBars.map((bar) => (
           <li key={bar.id}>

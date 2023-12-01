@@ -10,7 +10,7 @@ export const BarFilter = ({ id, name, icon, onSelect, selectedFilter }: BarFilte
   return (
     <button
       onClick={() => onSelect(id)}
-      className={`hover:border-primary flex flex-col items-center justify-center gap-4 rounded border  bg-stone-800  ${
+      className={`hover:border-primary flex flex-col items-center justify-center gap-4 rounded border bg-stone-800 ${
         selectedFilter === id ? 'border-primary' : 'border-stone-700'
       } `}
     >

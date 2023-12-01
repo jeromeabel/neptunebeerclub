@@ -28,13 +28,13 @@ export const BarItem: React.FC<BarItemProps> = ({ bar }) => {
   return (
     <div
       onClick={onClick}
-      className={`h-full rounded-xl px-8 py-6 hover:cursor-pointer ${
-        currentBar?.id === bar.id ? 'bg-slate-600' : 'bg-slate-900'
+      className={`h-full rounded-xl px-8 py-6 hover:cursor-pointer hover:bg-stone-600 ${
+        currentBar?.id === bar.id ? 'bg-stone-600' : 'bg-stone-800'
       } `}
     >
       <span className="text-2xl font-bold uppercase">{bar.name}</span>
       <p>
-        🏃‍♂️ A {distance ? distance.toFixed(2) : 'No Data'} KM {bar.address}
+        🏃‍♂️ A {distance ? distance.toFixed(2) : 'No Data'} KM - {bar.address}
       </p>
     </div>
   );
