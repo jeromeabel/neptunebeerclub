@@ -1,6 +1,7 @@
 import { ApiResponse } from './types';
 
-const API_URL = import.meta.env.VITE_API_BARS_URL as string;
+// const API_URL = import.meta.env.VITE_API_BARS_URL as string;
+const API_URL = 'https://api.brest.bar/items/bars';
 const LOCAL_JSON = '../../assets/bars.json';
 
 export const fetchBars = async () => {
