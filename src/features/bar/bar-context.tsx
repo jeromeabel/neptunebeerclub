@@ -29,7 +29,7 @@ export const BarProvider = ({ children }: PropsWithChildren) => {
       try {
         const data = await fetchBars();
         setBars(data);
-        setFilteredBars(data.slice(0, numberOfBars));
+        setFilteredBars(data);
       } catch (error) {
         console.error("Erreur lors de l'importation des données des bars :", error);
       } finally {
@@ -58,11 +58,10 @@ export const BarProvider = ({ children }: PropsWithChildren) => {
 
   const udpateNumberOfBars = (newNb: number) => {
     setNumberOfBars(newNb);
-    setFilteredBars(bars.slice(0, newNb));
   };
 
   const updateFilteredBars = (filteredData: BarType[]) => {
-    setFilteredBars(filteredData.slice(0, numberOfBars));
+    setFilteredBars(filteredData);
   };
 
   const updateCurrentBar = (newBar: BarType) => {
