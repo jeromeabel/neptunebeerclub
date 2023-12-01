@@ -4,19 +4,19 @@ import { MapProvider } from 'react-map-gl';
 
 export const Home = () => {
   return (
-    <div className="">
-      <Header />
-      <div className="grid grid-cols-[1fr_2fr]">
-        <BarProvider>
-          <MapProvider>
-            <div className="flex flex-col">
-              <BarFilters />
-              <BarList />
-            </div>
+    <BarProvider>
+      <MapProvider>
+        <div className="grid grid-cols-[1fr_2fr]">
+          <div className="flex h-screen flex-col">
+            <Header />
+            <BarFilters />
+            <BarList />
+          </div>
+          <div>
             <BarMap />
-          </MapProvider>
-        </BarProvider>
-      </div>
-    </div>
+          </div>
+        </div>
+      </MapProvider>
+    </BarProvider>
   );
 };
