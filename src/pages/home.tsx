@@ -7,7 +7,7 @@ export const Home = () => {
     <BarProvider>
       <MapProvider>
         <div className="grid grid-cols-[1fr_2fr]">
-          <div className="flex flex-col">
+          <div className="flex h-screen flex-col">
             <Header />
             <BarFilters />
             <BarList />

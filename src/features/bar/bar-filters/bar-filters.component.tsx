@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { useBarContext } from '../bar-context';
 import { BarFilter } from './bar-filter.components';
 
-// 🍾 🧃 🧉 🍹 🍸 🥃 ☕ 🍷
 export const BarFilters = () => {
-  const { loading, bars, updateFilteredBars } = useBarContext();
+  const { bars, updateFilteredBars } = useBarContext();
   const [currentFilter, setCurrentFilter] = useState<number>(0);
 
   const handleOnFilter = (filterId: number) => {
@@ -17,10 +16,6 @@ export const BarFilters = () => {
     updateFilteredBars(filteredBars);
     setCurrentFilter(filterId);
   };
-
-  if (loading) {
-    return <div>Chargement en cours...</div>;
-  }
 
   return (
     <div className="border-b border-gray-500 p-4">
@@ -38,7 +33,7 @@ export const BarFilters = () => {
         />
         <BarFilter
           id={1}
-          name="Midi"
+          name="Bar"
           onSelect={handleOnFilter}
           icon="🍷"
           selectedFilter={currentFilter}

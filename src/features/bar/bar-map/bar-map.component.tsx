@@ -8,6 +8,7 @@ import { BarMapMarkers } from './bar-map-markers.component';
 import { convertBarDataToGeojson } from './helpers';
 import { GeoJsonFeatureCollection } from '../types';
 import { handleMapClick } from './bar-map-click-handler';
+import Loading from '@components/Loading';
 
 const MAPBOX_TOKEN =
   'pk.eyJ1IjoiamVyb21lYWJlbCIsImEiOiJjbHBoM2N0cnQwNWFlMmpwZDI1c3h2NXJqIn0.v9Z0ML_8Fe2xlzX_ggRyOA';
@@ -32,8 +33,12 @@ export const BarMap = () => {
     handleMapClick(event, mapRef);
   };
 
+  if (loading) {
+    return <Loading />;
+  }
+
   return (
-    <div className="map-wrap">
+    <div className="h-screen w-full">
       <Map
         id="barmap"
         initialViewState={{

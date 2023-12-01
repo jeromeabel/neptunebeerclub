@@ -1,89 +1,30 @@
 @import '@fontsource/grenze';
 
 @tailwind base;
+
+:root {
+  --front-yellow: #ffffbbff;
+  --back-grey: rgb(48, 48, 42);
+}
+
+/* Firefox */
+* {
+  scrollbar-width: 15px;
+  scrollbar-color: var(--front-yellow) var(--back-grey);
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--back-grey);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--front-yellow);
+}
+
 @tailwind components;
 @tailwind utilities;
-
-/* 
-@layer base {
-  h1 {
-    @apply text-5xl tracking-wider;
-  }
-  h2 {
-    @apply text-4xl;
-  }
-  h3 {
-    @apply text-3xl;
-  }
-  h4 {
-    @apply text-2xl;
-  }
-  h5 {
-    @apply text-xl;
-  }
-  h6 {
-    @apply text-lg;
-  }
-} */
-
-.custom-scrollbar {
-  /* -webkit-scrollbar-track: #2c2c2c;
-  -webkit-scrollbar-thumb: #b066f3;
-
-  -webkit-scrollbar-track-hover: #2c2c2c;
-  -webkit-scrollbar-thumb-hover: #b066f3;
-  --scrollbar-corner-hover: var(--scrollbar-corner);
-  -webkit-scrollbar-track-active: #2c2c2c;
-  -webkit-scrollbar-thumb-active: #b066f3;
-  --scrollbar-corner-active: var(--scrollbar-corner-hover);
-  scrollbar-color: #b066f3 #2c2c2c;
-  overflow: overlay; */
-
-  scrollbar-color: #6969dd #e0e0e0;
-  scrollbar-width: thin;
-  overflow-y: auto;
-  scrollbar-gutter: stable;
-}
-
-.mapboxgl-popup-close-button {
-  padding: 0.5rem;
-  background-color: #6b6b76;
-  font-size: 2rem;
-  border-color: transparent;
-  border-radius: 50%;
-  top: 5px;
-  right: 5px;
-}
-
-.map-wrap {
-  width: 100%;
-  height: 100vh;
-  /*height: calc(100vh - 5rem);*/
-  /* calculate height of the screen minus the heading */
-}
-
-.map {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-}
-
-#map {
-  width: 100vw;
-  height: 100vh;
-}
-.control-panel {
-  position: absolute;
-  top: 0;
-  right: 0;
-  max-width: 320px;
-  background: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  padding: 12px 24px;
-  margin: 20px;
-  font-size: 13px;
-  line-height: 2;
-  color: #6b6b76;
-  text-transform: uppercase;
-  outline: none;
-}
