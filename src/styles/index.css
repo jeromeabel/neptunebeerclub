@@ -1,7 +1,10 @@
+@import '@fontsource/grenze';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* 
 @layer base {
   h1 {
     @apply text-5xl tracking-wider;
@@ -21,7 +24,7 @@
   h6 {
     @apply text-lg;
   }
-}
+} */
 
 .custom-scrollbar {
   /* -webkit-scrollbar-track: #2c2c2c;
@@ -54,7 +57,9 @@
 
 .map-wrap {
   width: 100%;
-  height: calc(100vh - 6rem); /* calculate height of the screen minus the heading */
+  height: 100vh;
+  /*height: calc(100vh - 5rem);*/
+  /* calculate height of the screen minus the heading */
 }
 
 .map {
