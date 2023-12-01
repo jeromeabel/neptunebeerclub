@@ -334,9 +334,10 @@ J'ai essayé d'implémenter ces caractéristiques :
 
 ### Techniques
 
+- Gestion des données via API Directus
 - Docker : fly.io, Vercel
-- StoryBook
-- GSAP ou Framer-motion
+- StoryBook pour tester les composants
+- GSAP ou Framer-motion pour ajouter des animations
 
 ### Idées
 
