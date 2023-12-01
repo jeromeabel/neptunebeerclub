@@ -9,8 +9,8 @@ export const BarList = () => {
   }
 
   return (
-    <section className="custom-scrollbar h-5/6 overflow-y-scroll">
-      <ul className="flex flex-col gap-4 p-4">
+    <section>
+      <ul className="flex flex-col gap-4">
         {filteredBars.map((bar) => (
           <li key={bar.id}>
             <BarItem bar={bar} />
