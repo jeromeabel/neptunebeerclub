@@ -291,11 +291,11 @@ J'ai essayé d'implémenter ces caractéristiques :
 
 ```
 └── src/
-		├── assets/
+	├── assets/
     ├── features/
     │   ├── bars/
     │   │   ├── index.js (public API)
-	  │   │   ├── api/index.ts
+	│   │   ├── api/index.ts
     │   │   ├── bar-map/
     │   │   ├── bar-form/
     │   │   └── bar-list/
@@ -305,12 +305,12 @@ J'ai essayé d'implémenter ces caractéristiques :
     │   │       ├── bar-list.context.js
     │   │       ├── bar-list.test.js
     │   │       └── use-bar-list.js
-    │   └── users/ (new features, not yet)
-    │       ├── index.js
-    │       ├── login/
-    │       ├── signup/
-    │       └── use-auth.js
-		├── ui/ (common, shared components)
+    │   ├── users/ (new features, not yet)
+    │   │   ├── index.js
+    │   │   ├── login/
+    │   │   ├── signup/
+    │   │   └── use-auth.js
+	│	├── ui/ (common, shared components)
     │   ├── index.js
     │   ├── components/
     │   ├── containers/ : header, footer, navbar, ...
@@ -334,9 +334,10 @@ J'ai essayé d'implémenter ces caractéristiques :
 
 ### Techniques
 
+- Gestion des données via API Directus
 - Docker : fly.io, Vercel
-- StoryBook
-- GSAP ou Framer-motion
+- StoryBook pour tester les composants
+- GSAP ou Framer-motion pour ajouter des animations
 
 ### Idées
 
